@@ -1,1 +1,4 @@
-This file was created by JetBrains PhpStorm 5.0.2 for binding GitHub repository
+# Magento Form Filler
+
+Extension for Google Chrome that helps to fill out checkout and registration forms at Magento store.
+It use dummy data, but you can customize it at settings page

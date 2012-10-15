@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Details</title>
+    <link href="logo_16.png" rel="icon" type="image/ico">
+    <style type="text/css">
+        html, body {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            font: 10px 'PT Sans', Tahoma, Arial, sans-serif;
+            width: 640px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        fieldset {
+            border: none;
+            padding: 1em;
+            background: rgba(0, 0, 0, .2);
+            margin: 40px 0 20px;
+            border-radius: 10px;
+            border-top-left-radius: 0;
+            position: relative;
+        }
+        legend {
+            position: absolute;
+            font: bold 18px/22px 'PT Sans Narrow', Imapct, sans-serif;
+            top: -32px;
+            left: 0;
+            padding: 5px 20px;
+            border-radius: 10px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            background: rgba(0, 0, 0, .2);
+            text-shadow: 1px 1px 1px rgba(255, 255, 255, .7);
+        }
+        .form-list {
+            display: inline-block;
+            margin: 0;
+            padding: 10px 0 0 0;
+        }
+        .form-list .field {
+            list-style: none;
+            margin: 0 0 10px;
+            position: relative;
+        }
+        .form-list .hint {
+            position: absolute;
+            opacity: 0;
+            left: 100%;
+            top:0;
+            line-height: 29px;
+            white-space: nowrap;
+            padding: 0 1em 0 0;
+            font-size: 12px;
+            -webkit-perspective: 300;
+                    perspective: 300;
+            -webkit-transform-style: preserve-3d;
+                    transform-style: preserve-3d;
+            -webkit-transform: translate3d(0, 0, 1px);
+                    transform: translate3d(0, 0, 1px);
+            -webkit-transition: all .5s ease-out .2s;
+                    transition: all .5s ease-out .2s;
+        }
+        .form-list label {
+            box-sizing: border-box;
+            display: inline-block;
+            vertical-align: middle;
+            font: bold 14px 'PT Sans', Tahoma, Arial, sans-serif;
+            width: 300px;
+            padding: 0 20px 0 0;
+            text-align: right;
+            text-shadow: 1px 1px 1px rgba(255, 255, 255, .7);
+        }
+        .form-list input,
+        .form-list select {
+            color: #383838;
+            font: 14px 'PT Sans', Tahoma, Arial, sans-serif;
+            box-sizing: border-box;
+            width: 300px;
+        }
+        .form-list input {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+        .form-list select {
+            -webkit-appearance: menulist-button;
+        }
+        .form-list input:focus + .hint {
+            opacity: 1;
+            -webkit-transform: translate3d(-100%, 0, 10px);
+                    transform: translate3d(-100%, 0, 10px);
+        }
+        .form-actions {
+            margin: 1em 0 3em;
+            text-align: right;
+
+        }
+        .form-actions input {
+            border: none;
+            background: #000;
+            color: #000;
+            height: 35px;
+            padding: 0 1em;
+            border-radius: 1em;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, .7),
+                         0 -1px 0 rgba(255, 255, 255, .7),
+                         1px 0 0 rgba(255, 255, 255, .7),
+                         -1px 0 0 rgba(255, 255, 255, .7);
+            box-shadow: 0 0 1px 1px rgba(0, 0, 0, .8);
+            font:bold 18px/2em 'PT Sans', Tahoma, Arial, sans-serif;
+        }
+        .form-actions input:hover {
+            cursor: pointer;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, .9),
+                         0 -1px 0 rgba(255, 255, 255, .9),
+                         1px 0 0 rgba(255, 255, 255, .9),
+                        -1px 0 0 rgba(255, 255, 255, .9);
+        }
+    </style>
+</head>
+<body>
+<form action="/" id="form">
+    <fieldset>
+        <legend>User Info</legend>
+        <ul class="form-list">
+            <li class="field">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email">
+                <input type="hidden" name="login[username]">
+                <input type="hidden" name="billing[email]">
+                <input type="hidden" name="shipping[email]">
+            </li>
+            <li class="field">
+                <label for="password">Password</label>
+                <input type="text" name="password" id="password">
+                <input type="hidden" name="confirmation">
+                <input type="hidden" name="login[password]">
+                <input type="hidden" name="login[confirmation]">
+                <input type="hidden" name="billing[password]">
+                <input type="hidden" name="billing[confirmation]">
+                <input type="hidden" name="billing[customer_password]">
+                <input type="hidden" name="billing[confirm_password]">
+                <input type="hidden" name="shipping[password]">
+                <input type="hidden" name="shipping[confirmation]">
+            </li>
+            <li class="field">
+                <label for="firstname">Firstname</label>
+                <input type="text" name="firstname" id="firstname">
+                <input type="hidden" name="billing[firstname]">
+            </li>
+            <li class="field">
+                <label for="lastname">Lastname</label>
+                <input type="text" name="lastname" id="lastname">
+                <input type="hidden" name="billing[lastname]">
+            </li>
+            <li class="field">
+                <label for="telephone">Telephone</label>
+                <input type="text" name="telephone" id="telephone">
+                <input type="hidden" name="billing[telephone]">
+            </li>
+        </ul>
+    </fieldset>
+    <fieldset>
+        <legend>Billing Address</legend>
+        <ul class="form-list">
+            <li class="field">
+                <label for="street">Street</label>
+                <input type="text" name="billing[street][]" id="street" />
+            </li>
+            <li class="field">
+                <label for="city">City</label>
+                <input type="text" name="billing[city]" id="city" />
+            </li>
+            <li class="field">
+                <label for="country_id">Country</label>
+                <input type="text" name="billing[country_id]" id="country_id" />
+                <span class="hint">should be shortcode</span>
+            </li>
+            <li class="field">
+                <label for="region_id">State</label>
+                <input type="text" name="billing[region_id]" id="region_id" />
+                <span class="hint">can be integer id or string name of state</span>
+            </li>
+            <li class="field">
+                <label for="postcode">Postcode</label>
+                <input type="text" name="billing[postcode]" id="postcode" />
+            </li>
+        </ul>
+    </fieldset>
+    <fieldset>
+        <legend>Shipping Address</legend>
+        <ul class="form-list">
+            <li class="field">
+                <label for="shipping_firstname">Firstname</label>
+                <input type="text" name="shipping[firstname]" id="shipping_firstname" />
+            </li>
+            <li class="field">
+                <label for="shipping_lastname">Lastname</label>
+                <input type="text" name="shipping[lastname]" id="shipping_lastname" />
+            </li>
+            <li class="field">
+                <label for="shipping_email">Email</label>
+                <input type="email" name="shipping[email]" id="shipping_email" />
+            </li>
+            <li class="field">
+                <label for="shipping_telephone">Telephone</label>
+                <input type="text" name="shipping[telephone]" id="shipping_telephone" />
+            </li>
+            <li class="field">
+                <label for="shipping_street">Street</label>
+                <input type="text" name="shipping[street][]" id="shipping_street" />
+            </li>
+            <li class="field">
+                <label for="shipping_city">City</label>
+                <input type="text" name="shipping[city]" id="shipping_city" />
+            </li>
+            <li class="field">
+                <label for="shipping_country_id">Country</label>
+                <input type="text" name="shipping[country_id]" id="shipping_country_id" />
+                <span class="hint">should be shortcode</span>
+            </li>
+            <li class="field">
+                <label for="shipping_region_id">State</label>
+                <input type="text" name="shipping[region_id]" id="shipping_region_id" />
+                <span class="hint">can be integer id or string name of state</span>
+            </li>
+            <li class="field">
+                <label for="shipping_postcode">Postcode</label>
+                <input type="text" name="shipping[postcode]" id="shipping_postcode" />
+            </li>
+        </ul>
+    </fieldset>
+    <fieldset>
+        <legend>Payment Info</legend>
+        <ul class="form-list">
+            <li class="field">
+                <label for="cc_owner">Owner Name</label>
+                <input type="text" name="payment[cc_owner]" id="cc_owner" />
+            </li>
+            <li class="field">
+                <label for="cc_number">Card Number</label>
+                <input type="text" name="payment[cc_number]" id="cc_number" />
+            </li>
+            <li class="field">
+                <label for="cc_type">Card Type</label>
+                <select name="payment[cc_type]" id="cc_type">
+                    <option value="Visa">Visa</option>
+                    <option value="Master Card">Master Card</option>
+                </select>
+            </li>
+            <li class="field">
+                <label for="cc_exp_month">Exp. Month</label>
+                <input type="text" name="payment[cc_exp_month]" id="cc_exp_month" />
+            </li>
+            <li class="field">
+                <label for="cc_exp_year">Exp. Year</label>
+                <input type="text" name="payment[cc_exp_year]" id="cc_exp_year" />
+            </li>
+        </ul>
+    </fieldset>
+    <div class="form-actions">
+        <input id="reset" type="button" value="Use Default" />
+        <input id="submit" type="button" value="Submit" />
+    </div>
+</form>
+<script type="text/javascript" src="options.js"></script>
+</body>
+</html>
