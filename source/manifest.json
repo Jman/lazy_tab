@@ -1,7 +1,7 @@
 {
     "name":"Magento Form Filler Local",
     "description":"Fill out checkout and registration forms at Magento store. It use dummy data, but you can customize it at settings page",
-    "version":"0.8.1",
+    "version":"0.8.2",
     "manifest_version": 2,
     "browser_action": {
         "default_title": "Click to fill out form",

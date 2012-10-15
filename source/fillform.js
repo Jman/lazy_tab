@@ -1,5 +1,9 @@
+/*global chrome:false */
+/*jshint boss:true, eqeqeq:true, bitwise:true, strict:true, browser:true, unused:true */
+
 (function(doc){
 
+    "use strict";
 
     var elems = doc.querySelectorAll('input, select'),
         i = elems.length, elem,
@@ -7,13 +11,13 @@
             while(elem = elems[--i]){
                 if(FORMData[elem.name]){
                     elem.focus();
-                    if(elem.tagName.toLowerCase() == 'input'){
+                    if(elem.tagName.toLowerCase() === 'input'){
                         elem.value = FORMData[elem.name];
-                    } else if(elem.tagName.toLowerCase() == 'select') {
+                    } else if(elem.tagName.toLowerCase() === 'select') {
                         for(var j = 0, l = elem.length; j < l; j++ ){
-                            if( elem.options[j].value.toLowerCase() ==  FORMData[elem.name].toLowerCase() ||
-                                elem.options[j].title.toLowerCase() ==  FORMData[elem.name].toLowerCase() ||
-                                elem.options[j].innerHTML.toLowerCase() ==  FORMData[elem.name].toLowerCase() ){
+                            if( elem.options[j].value.toLowerCase() === FORMData[elem.name].toLowerCase() ||
+                                elem.options[j].title.toLowerCase() === FORMData[elem.name].toLowerCase() ||
+                                elem.options[j].innerHTML.toLowerCase() === FORMData[elem.name].toLowerCase() ){
                                 elem.selectedIndex = j;
                             }
                         }
