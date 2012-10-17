@@ -1,5 +1,3 @@
-/*global chrome:false */
-/*jshint eqeqeq:true, bitwise:true, strict:true, browser:true, unused:true */
 (function(){
 
     "use strict";
@@ -81,7 +79,7 @@
         },
 
         prepareResponse : function bg_prepareResponse(request, sender, sendResponse) {
-            if (sender.id !== this.extensions_id ) return;
+            if (sender.id !== this.extensions_id ) { return; }
             if(request.getFormData) {
                 sendResponse(this.FORMData);
             }

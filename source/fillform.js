@@ -1,5 +1,4 @@
-/*global chrome:false */
-/*jshint boss:true, eqeqeq:true, bitwise:true, strict:true, browser:true, unused:true */
+/*jshint boss:true*/
 
 (function(doc){
 

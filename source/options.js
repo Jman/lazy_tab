@@ -1,6 +1,3 @@
-/*global chrome:false */
-/*jshint eqeqeq:true, bitwise:true, strict:true, browser:true, unused:true */
-
 (function(win, doc, undefined){
 
     "use strict";
