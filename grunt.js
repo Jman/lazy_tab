@@ -25,7 +25,6 @@ module.exports = function(grunt) {
             source : {
                 files : ['source/manifest.json'],
                 match : {
-                    '\\sLocal' : '',
                     '"version"(\\s+?):(\\s+?)".+?"' : '"version"$1:$2"<%= pkg.version %>"'
                 }
             }
@@ -43,21 +42,20 @@ module.exports = function(grunt) {
         },
         jshint : {
             options: {
-                bitwise: true,
-                browser: true,
-                boss: true,
-                curly: true,
-                eqeqeq: true,
-                eqnull: true,
-                strict: true,
-                newcap: true,
-                noarg: true,
-                unused: true
+                bitwise : true,
+                browser : true,
+                curly   : true,
+                eqeqeq  : true,
+                eqnull  : true,
+                strict  : true,
+                newcap  : true,
+                noarg   : true,
+                unused  : true
             },
             globals: {
-                exports: true,
-                module: false,
-                chrome: false
+                exports : true,
+                module  : false,
+                chrome  : false
             }
         }
     });
@@ -86,6 +84,6 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('default', 'lint');
-    grunt.registerTask('deploy', 'lint copy replace compress');
+    grunt.registerTask('deploy', 'lint copy replace compress clean');
 
 };
