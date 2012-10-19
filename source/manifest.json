@@ -1,6 +1,6 @@
 {
     "name"             : "Lazy Tabs",
-    "version"          : "0.1.7",
+    "version"          : "0.1.9",
     "manifest_version" : 2,
     "description"      : "Blocks all requests in inactive tabs (except main document and favicon) at Google Chrome startup",
     "permissions"      : [
