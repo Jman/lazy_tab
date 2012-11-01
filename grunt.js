@@ -15,8 +15,15 @@ module.exports = function(grunt) {
             }
         },
         replace : {
-            main : {
-                files : ['dist/manifest.json', 'source/manifest.json'],
+            dist : {
+                files : ['dist/manifest.json'],
+                match : {
+                    '\\sLocal' : '',
+                    '"version"(\\s+?):(\\s+?)".+?"' : '"version"$1:$2"<%= pkg.version %>"'
+                }
+            },
+            source : {
+                files : ['source/manifest.json'],
                 match : {
                     '"version"(\\s+?):(\\s+?)".+?"' : '"version"$1:$2"<%= pkg.version %>"'
                 }

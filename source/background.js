@@ -29,8 +29,18 @@
         on_activated = function(data){
             tabs.get(data.tabId, check_tab);
         },
+        on_updated = function(tab_id, details, tab){
+            //The extensions gallery cannot be scripted
+            if(details.url.indexOf('chrome.google.com') !==-1){
+                return;
+            }
+            if(activated.indexOf(tab.id) === -1 && details.status === "loading"){
+                tabs.executeScript(tab.id, {code: "window.stop()", runAt : "document_start"});
+            }
+        },
         on_created = function(){
             request.onBeforeRequest.removeListener(on_before_request);
+            tabs.onUpdated.removeListener(on_updated);
         };
 
 
@@ -41,6 +51,8 @@
         },
         ["blocking"]
     );
+
+    tabs.onUpdated.addListener(on_updated);
 
     tabs.onCreated.addListener(on_created);
     tabs.onActivated.addListener(on_activated);
