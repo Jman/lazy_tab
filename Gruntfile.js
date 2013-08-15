@@ -4,27 +4,20 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        stylus : {
-            main : {
-                files : {
-                    "source/main.css" : "source/main.styl"
-                }
-            }
-        },
         autoprefixer : {
             main : {
                 options : {
                     browsers : ["chrome > 18"]
                 },
                 files : {
-                    "source/main.css" : "source/main.css"
+                    "source/main.min.css" : "source/main.css"
                 }
             }
         },
         csso : {
             main : {
                 files : {
-                    "source/main.css" : "source/main.css"
+                    "source/main.min.css" : "source/main.min.css"
                 }
             }
         },
@@ -62,7 +55,8 @@ module.exports = function(grunt) {
 
         },
         clean : {
-            main : ['dist/']
+            before : ['dist/main.css'],
+            after : ['dist/']
         },
         jshint : {
             files : ['Gruntfile.js','source/*.js'],
@@ -96,7 +90,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-stylus');
     grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.loadNpmTasks('grunt-csso');
 
@@ -116,7 +109,7 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('default', ['jshint']);
-    grunt.registerTask('compile', ['stylus','autoprefixer', 'csso']);
-    grunt.registerTask('deploy', ['jshint', 'compile', 'copy', 'replace', 'compress', 'clean']);
+    grunt.registerTask('compile', ['autoprefixer', 'csso']);
+    grunt.registerTask('deploy', ['jshint', 'compile', 'copy', 'replace', 'clean:before' , 'compress', 'clean:after']);
 
 };

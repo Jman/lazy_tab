@@ -2,7 +2,7 @@
   "name": "opc_form",
   "title": "Magento Form Filler Local",
   "description": "Fill out checkout and registration forms at Magento store. It use dummy data, but you can customize it at settings page",
-  "version": "0.8.3",
+  "version": "0.8.4",
   "homepage": "https://github.com/jman/opc_form",
   "author": {
     "name": "Eugen Tereschenko",
@@ -27,7 +27,6 @@
     "grunt-contrib-compress": "~0.5.1",
     "grunt-contrib-copy": "~0.4.0",
     "grunt-contrib-jshint": "~0.5.4",
-    "grunt-contrib-stylus": "~0.7.0",
     "grunt-autoprefixer": "~0.2.20130806",
     "grunt-contrib-watch": "~0.5.1",
     "grunt-csso": "~0.5.0"
