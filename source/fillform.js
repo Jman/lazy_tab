@@ -20,7 +20,6 @@
                                 elem.selectedIndex = j;
                             }
                         }
-
                     }
                     elem.blur();
                 }

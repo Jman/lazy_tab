@@ -10,6 +10,7 @@
 
             "login[username]"            : "john.smith@example.com",
             "login[password]"            : "password",
+            "login[confirmation]"        : "password",
 
             "firstname"                  : "John",
             "lastname"                   : "Smith",
@@ -54,7 +55,13 @@
             "payment[cc_type]"           : "Visa",
             "payment[cc_exp_month]"      : "12",
             "payment[cc_exp_year]"       : "2022",
-            "payment[cc_cid]"            : "111"
+            "payment[cc_cid]"            : "111",
+
+            "account[email]"             : "john.smith@example.com",
+            "account[password]"          : "password",
+            "account[firstname]"         : "John",
+            "account[lastname]"          : "Smith",
+            "account[telephone]"         : "1-424-280-0000"
         },
 
         FORMData : {},
