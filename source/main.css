@@ -103,3 +103,20 @@ legend { position: absolute;
     color: #fff;
     box-shadow: 0 0 4px #4e4e4e;
 }
+
+.sponsor-label {
+    position: fixed;
+    right: 1em;
+    bottom: 1em;
+    color:#000;
+    font-size: 12px;
+    font-family:sans-serif;
+    line-height:1em;
+    text-decoration:none;
+}
+.sponsor-label img{
+    height:2.8em;
+    vertical-align:middle;
+    position:relative;
+    top:-.1em;
+}

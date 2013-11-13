@@ -79,7 +79,7 @@ module.exports = function(grunt) {
         },
         watch: {
             css: {
-                files: 'source/main.styl',
+                files: 'source/main.css',
                 tasks: ['compile']
             }
         }

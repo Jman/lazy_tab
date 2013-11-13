@@ -5,7 +5,7 @@
     var form = doc.getElementById('form'),
         submit = doc.getElementById('submit'),
         reset = doc.getElementById('reset'),
-        fields = [].filter.call( form, function(el){ return el.value !== undefined; }),
+        fields = [].filter.call( form, function(el){ return el.value !== undefined && el.name; }),
         onchange = function(){
             var hidden = [].slice.call(this.parentNode.querySelectorAll('[type="hidden"]')),
                 value = this.value;

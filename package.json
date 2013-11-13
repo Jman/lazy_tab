@@ -1,8 +1,8 @@
 {
   "name": "opc_form",
-  "title": "Magento Form Filler Local",
+  "title": "Magento Form Filler",
   "description": "Fill out checkout and registration forms at Magento store. It use dummy data, but you can customize it at settings page",
-  "version": "0.8.5",
+  "version": "0.9.0",
   "homepage": "https://github.com/jman/opc_form",
   "author": {
     "name": "Eugen Tereschenko",

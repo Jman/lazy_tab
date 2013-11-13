@@ -13,42 +13,24 @@
             <li class="field">
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email">
-                <input type="hidden" name="login[username]">
-                <input type="hidden" name="account[email]">
-                <input type="hidden" name="billing[email]">
-                <input type="hidden" name="shipping[email]">
+                <input type="hidden" name="username">
             </li>
             <li class="field">
                 <label for="password">Password</label>
                 <input type="text" name="password" id="password">
-                <input type="hidden" name="confirmation">
-                <input type="hidden" name="login[password]">
-                <input type="hidden" name="login[confirmation]">
-                <input type="hidden" name="account[password]">
-                <input type="hidden" name="billing[password]">
-                <input type="hidden" name="billing[confirmation]">
-                <input type="hidden" name="billing[customer_password]">
-                <input type="hidden" name="billing[confirm_password]">
-                <input type="hidden" name="shipping[password]">
-                <input type="hidden" name="shipping[confirmation]">
+                <input type="hidden" name="confirm">
             </li>
             <li class="field">
                 <label for="firstname">Firstname</label>
                 <input type="text" name="firstname" id="firstname">
-                <input type="hidden" name="billing[firstname]">
-                <input type="hidden" name="account[firstname]">
             </li>
             <li class="field">
                 <label for="lastname">Lastname</label>
                 <input type="text" name="lastname" id="lastname">
-                <input type="hidden" name="billing[lastname]">
-                <input type="hidden" name="account[lastname]">
             </li>
             <li class="field">
                 <label for="telephone">Telephone</label>
                 <input type="text" name="telephone" id="telephone">
-                <input type="hidden" name="billing[telephone]">
-                <input type="hidden" name="account[telephone]">
             </li>
         </ul>
     </fieldset>
@@ -57,25 +39,25 @@
         <ul class="form-list">
             <li class="field">
                 <label for="street">Street</label>
-                <input type="text" name="billing[street][]" id="street" />
+                <input type="text" name="street" id="street" />
             </li>
             <li class="field">
                 <label for="city">City</label>
-                <input type="text" name="billing[city]" id="city" />
+                <input type="text" name="city" id="city" />
             </li>
             <li class="field">
                 <label for="country_id">Country</label>
-                <input type="text" name="billing[country_id]" id="country_id" />
+                <input type="text" name="country_id" id="country_id" />
                 <span class="hint">should be shortcode</span>
             </li>
             <li class="field">
                 <label for="region_id">State</label>
-                <input type="text" name="billing[region_id]" id="region_id" />
+                <input type="text" name="region_id" id="region_id" />
                 <span class="hint">can be integer id or string name of state</span>
             </li>
             <li class="field">
                 <label for="postcode">Postcode</label>
-                <input type="text" name="billing[postcode]" id="postcode" />
+                <input type="text" name="postcode" id="postcode" />
             </li>
         </ul>
     </fieldset>
@@ -127,30 +109,30 @@
         <ul class="form-list">
             <li class="field">
                 <label for="cc_owner">Owner Name</label>
-                <input type="text" name="payment[cc_owner]" id="cc_owner" />
+                <input type="text" name="cc_owner" id="cc_owner" />
             </li>
             <li class="field">
                 <label for="cc_number">Card Number</label>
-                <input type="text" name="payment[cc_number]" id="cc_number" />
+                <input type="text" name="cc_number" id="cc_number" />
             </li>
             <li class="field">
                 <label for="cc_type">Card Type</label>
-                <select name="payment[cc_type]" id="cc_type">
+                <select name="cc_type" id="cc_type">
                     <option value="Visa">Visa</option>
                     <option value="Master Card">Master Card</option>
                 </select>
             </li>
             <li class="field">
                 <label for="cc_exp_month">Exp. Month</label>
-                <input type="text" name="payment[cc_exp_month]" id="cc_exp_month" />
+                <input type="text" name="cc_exp_month" id="cc_exp_month" />
             </li>
             <li class="field">
                 <label for="cc_exp_year">Exp. Year</label>
-                <input type="text" name="payment[cc_exp_year]" id="cc_exp_year" />
+                <input type="text" name="cc_exp_year" id="cc_exp_year" />
             </li>
             <li class="field">
                 <label for="cc_cid">CVV</label>
-                <input type="text" name="payment[cc_cid]" id="cc_cid" />
+                <input type="text" name="cc_cid" id="cc_cid" />
             </li>
         </ul>
     </fieldset>
@@ -159,6 +141,9 @@
         <input id="submit" type="button" value="Submit" />
     </div>
 </form>
+<a class="sponsor-label" href="https://eltrino.com">
+    Sponsored by: <img src="logo.svg" alt="Eltrino" />
+</a>
 <script type="text/javascript" src="options.js"></script>
 </body>
 </html>
