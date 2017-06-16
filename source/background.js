@@ -22,7 +22,7 @@
             "confirm"   : "password",
 
             "cc_owner"    : "Visa Test",
-            "cc_number"   : "4111 1111 1111 1111",
+            "cc_number"   : "4111111111111111",
             "cc_type"     : "Visa",
             "cc_exp_month": "12",
             "cc_exp_year" : "2022",

@@ -4,7 +4,9 @@
 
     "use strict";
 
-    var processSelect = function(el, val){
+    var keyboardEvent = document.createEvent('UiEvent'),
+        selectEvent = document.createEvent('UiEvent'),
+        processSelect = function(el, val){
             for(var i = 0, l = el.length; i < l; i++ ){
                 if( el.options[i].value.toLowerCase() === val ||
                     el.options[i].title.toLowerCase() === val ||
@@ -17,8 +19,10 @@
             elem.focus();
             if(elem.tagName.toLowerCase() === 'input'){
                 elem.value = value;
+                elem.dispatchEvent(keyboardEvent);
             } else if(elem.tagName.toLowerCase() === 'select') {
                 processSelect(elem, value.toLowerCase());
+                elem.dispatchEvent(selectEvent);
             }
             elem.blur();
         },
@@ -34,6 +38,9 @@
                 }
             });
         };
+
+    keyboardEvent.initEvent('keyup', true, true);
+    selectEvent.initEvent('change', true, true);
 
     chrome.extension.sendMessage({ getFormData: true }, fillForm);
 
