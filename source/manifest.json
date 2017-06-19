@@ -1,17 +1,19 @@
 {
-    "name"              : "Magento Form Filler Local",
-    "description"       : "Fill out checkout and registration forms at Magento store. It use dummy data, but you can customize it at settings page",
-    "version"           : "1.0.0",
-    "manifest_version"  : 2,
-    "browser_action"    : {
-        "default_title" : "Click to fill out form",
-        "default_icon"  : "logo_19.png"
-    },
-    "permissions"       : [ "tabs", "http://*/*", "https://*/*" ],
-    "background"        : { "scripts": ["background.js"] },
-    "options_page"      : "options.html",
-    "icons"             : {
-        "48"            : "logo_48.png",
-        "128"           : "logo_128.png"
-    }
+  "name"              : "Magento Form Filler",
+  "description"       : "Fill out checkout and registration forms at Magento store. It uses dummy data, but you can customize it at settings page",
+  "version"           : "0.0.0.0",
+  "manifest_version"  : 2,
+  "browser_action"    : {
+    "default_title"   : "Click to fill out form",
+    "default_icon"    : "require(./img/logo_19.png)"
+  },
+  "permissions"       : [ "tabs", "http://*/*", "https://*/*" ],
+  "background"        : {
+    "scripts"         : [ "background.js" ]
+  },
+  "options_page"      : "require(./options.html)",
+  "icons"             : {
+    "48"              : "require(./img/logo_48.png)",
+    "128"             : "require(./img/logo_128.png)"
+  }
 }

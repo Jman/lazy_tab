@@ -21,13 +21,6 @@
             "password"  : "password",
             "confirm"   : "password",
 
-            "cc_owner"    : "Visa Test",
-            "cc_number"   : "4111111111111111",
-            "cc_type"     : "Visa",
-            "cc_exp_month": "12",
-            "cc_exp_year" : "2022",
-            "cc_cid"      : "111",
-
             "shipping[firstname]"   : "Jane",
             "shipping[lastname]"    : "Smith",
             "shipping[telephone]"   : "1-424-280-0000",
@@ -36,13 +29,20 @@
             "shipping[city]"        : "Beverly Hills",
             "shipping[country_id]"  : "US",
             "shipping[region_id]"   : "California",
-            "shipping[postcode]"    : "90210"
+            "shipping[postcode]"    : "90210",
+
+            "cc_owner"    : "Visa Test",
+            "cc_number"   : "4111111111111111",
+            "cc_type"     : "Visa",
+            "cc_exp_month": "12",
+            "cc_exp_year" : "2022",
+            "cc_cid"      : "111"
 
         },
 
         FORMData : {},
 
-        syncFORMData : function() {
+        syncFORMData : function bg_syncFORMData() {
             var names = Object.keys(this.defaultFORMData),
                 i = 0;
             for( i = names.length ; i-- ; ) {
@@ -57,8 +57,15 @@
             }
         },
 
-        fillform : function bg_fillform(tab){
-            chrome.tabs.executeScript( tab.id, { file:"fillform.js" });
+        clickHandler : function bg_clickHandler(tab){
+            if(false) { // For selecting user
+                chrome.browserAction.setPopup({
+                    tabId: tab.id,
+                    popup: 'popup.html'
+                })
+            } else {
+                chrome.tabs.executeScript( tab.id, { file:"fillform.js" });
+            }
         },
 
         prepareResponse : function bg_prepareResponse(request, sender, sendResponse) {
@@ -72,10 +79,10 @@
             }
         },
 
-        initialize : function bg_atachevents(){
+        initialize : function bg_initialize(){
             this.syncFORMData();
             chrome.extension.onMessage.addListener( this.prepareResponse.bind(this) );
-            chrome.browserAction.onClicked.addListener( this.fillform.bind(this) );
+            chrome.browserAction.onClicked.addListener( this.clickHandler.bind(this) );
         }
     };
 

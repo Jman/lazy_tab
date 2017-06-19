@@ -2,11 +2,15 @@
   "name": "opc_form",
   "title": "Magento Form Filler",
   "description": "Fill out checkout and registration forms at Magento store. It use dummy data, but you can customize it at settings page",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/jman/opc_form",
   "author": {
     "name": "Eugen Tereschenko",
     "email": "i@jman.info"
+  },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack",
+    "build": "cross-env NODE_ENV=production webpack"
   },
   "repository": {
     "type": "git",
@@ -22,15 +26,18 @@
     }
   ],
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-clean": "~0.4.1",
-    "grunt-contrib-compress": "~0.5.1",
-    "grunt-contrib-copy": "~0.4.0",
-    "grunt-contrib-jshint": "~0.5.4",
-    "grunt-autoprefixer": "~0.2.20130806",
-    "grunt-contrib-watch": "~0.5.1",
-    "grunt-csso": "~0.5.0"
+    "chrome-manifest-loader": "^0.1.1",
+    "cross-env": "^5.0.1",
+    "css-loader": "^0.28.4",
+    "extract-loader": "^0.1.0",
+    "file-loader": "^0.11.2",
+    "html-loader": "^0.4.5",
+    "webpack": "^2.6.1",
+    "zip-webpack-plugin": "^1.1.0"
   },
+  "browserslist": [
+    "chrome > 50"
+  ],
   "keywords": [
     "magento",
     "chrome",
