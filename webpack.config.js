@@ -1,31 +1,58 @@
+const webpack = require('webpack');
 const path = require('path');
 const isProd = process.env.NODE_ENV === 'production';
 let ZipPlugin = require('zip-webpack-plugin');
 
 module.exports = {
+
   entry: {
     manifest : './source/manifest.json',
     options: './source/options.js',
     fillform: './source/fillform.js',
     background: './source/background.js'
   },
+
   output: {
     path: path.resolve(__dirname, './test'),
     filename: '[name].js'
   },
+
+  watch: true,
+
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+            'scss': 'vue-style-loader!css-loader!sass-loader',
+            'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
+          }
+        }
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.scss$/,
         use: [
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[ext]'
+              name: '[name].css'
             }
           },
           'extract-loader',
-          'css-loader'
+          {
+            loader: 'css-loader',
+            options: {
+              minimize: isProd
+            }
+          },
+          'sass-loader'
         ]
       },
       {

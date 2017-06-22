@@ -4,14 +4,15 @@ Extension for Google Chrome that helps to fill out checkout and registration for
 It uses dummy data, but you can customize it at settings page
 
 
-[Url to install] (https://chrome.google.com/webstore/detail/magento-form-filler/kgjadikbkhkijmjickblphfgjgjagged "magento-form-filler")
+[Url to install](https://chrome.google.com/webstore/detail/magento-form-filler/kgjadikbkhkijmjickblphfgjgjagged "Magento Form Filler")
 
 
 ## Release History
 
 ### 1.0.1
-  * reorganize assets
-  * move build tasks to Webpack
+  * Reorganize assets
+  * Move build tasks to Webpack
+  * Add Vue
 
 ### 1.0.0
   * Add M2 support

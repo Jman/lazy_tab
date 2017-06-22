@@ -1,16 +1,5 @@
-html,
-body {
-    padding: 0;
-    margin: 0;
-}
+@import "core";
 
-body {
-    font: 10px "Helvetica Neue", "Calibri", "Droid Sans", "Helvetica", "Arial", sans-serif;
-    width: 640px;
-    margin: 0 auto;
-    text-align: center;
-    color: #333;
-}
 fieldset { border: none;
     padding: 2em;
     background: #f0f0f0;
@@ -81,13 +70,16 @@ legend { position: absolute;
 }
 .form-list input { width: 300px;
 }
-.form-list input:focus + .hint { opacity: 1;
+.form-list input:focus + .hint {
+    opacity: 1;
     transform: translate3d(-100%, 0, 10px);
 }
-.form-actions { margin: -1em 0 6em;
+.form-actions {
+    margin: -1em 0 6em;
     text-align: right;
 }
-.form-actions input { border: none;
+.form-actions input {
+    border: none;
     color: rgba(255, 255, 255, 0.9);
     height: 35px;
     padding: 0 1em;
@@ -97,7 +89,8 @@ legend { position: absolute;
     background: linear-gradient(to bottom, #000 0%, #4e4e4e 50%, #000 100%);
     transition: box-shadow 200ms ease-out;
 }
-.form-actions input:hover, .form-actions input:focus { cursor: pointer;
+.form-actions input:hover, .form-actions input:focus {
+    cursor: pointer;
     outline: none;
     background: linear-gradient(to bottom, #000 0%, #000 50%, #000 100%);
     color: #fff;
