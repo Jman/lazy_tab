@@ -131,8 +131,8 @@
             </ul>
         </fieldset>
         <div class="form-actions">
-            <input id="reset" type="button" @click.prevent="resetForm" value="Use Default" />
-            <input id="submit" type="button" @click.prevent="saveForm" value="Submit" />
+            <button @click.prevent="resetForm">Use Default</button>
+            <button @click.prevent="saveForm">Submit</button>
         </div>
     </form>
 </template>
@@ -155,17 +155,10 @@
       },
 
       saveForm(){
-        let data = {},
-            fields = [].filter.call( this.$el, el => el.value !== undefined && el.name ),
-            localData = localStorage.users ? JSON.parse(localStorage.users) : [];
-        fields.forEach(el => {
-          if(el.value !== undefined){
-            data[el.name] = el.value;
-          }
-        });
+        let localData = localStorage.users ? JSON.parse(localStorage.users) : [];
         localData[this.index] = localData[this.index] || {};
-        Object.assign(localData[this.index], data);
-        localStorage.users = JSON.stringify(localData);
+        Object.assign(localData[this.index], this.form);
+        localStorage.setItem('users', JSON.stringify(localData));
         this.$emit('updateUser');
       }
 

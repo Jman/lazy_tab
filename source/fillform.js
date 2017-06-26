@@ -1,5 +1,3 @@
-/*jshint boss:true*/
-
 (function(doc){
 
     "use strict";
@@ -7,7 +5,7 @@
     let keyboardEvent = document.createEvent('UiEvent'),
         selectEvent = document.createEvent('UiEvent'),
         processSelect = function(el, val){
-            for(var i = 0, l = el.length; i < l; i++ ){
+            for(let i = 0, l = el.length; i < l; i++ ){
                 if( el.options[i].value.toLowerCase() === val ||
                     el.options[i].title.toLowerCase() === val ||
                     el.options[i].innerHTML.toLowerCase() === val ){

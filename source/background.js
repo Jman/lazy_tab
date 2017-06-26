@@ -6,39 +6,7 @@
 
       extensions_id : chrome.runtime.id,
 
-      defaultFORMData: {
-
-        "firstname" : "John",
-        "lastname"  : "Smith",
-        "telephone" : "1-424-280-0000",
-        "email"     : "john.smith@example.com",
-        "username"  : "john.smith@example.com",
-        "street"    : "Coldwater Canyon Dr",
-        "city"      : "Beverly Hills",
-        "country_id": "US",
-        "region_id" : "California",
-        "postcode"  : "90210",
-        "password"  : "password",
-        "confirm"   : "password",
-
-        "shipping[firstname]"   : "Jane",
-        "shipping[lastname]"    : "Smith",
-        "shipping[telephone]"   : "1-424-280-0000",
-        "shipping[email]"       : "jane.smith@example.com",
-        "shipping[street][]"    : "Coldwater Canyon Dr",
-        "shipping[city]"        : "Beverly Hills",
-        "shipping[country_id]"  : "US",
-        "shipping[region_id]"   : "California",
-        "shipping[postcode]"    : "90210",
-
-        "cc_owner"    : "Visa Test",
-        "cc_number"   : "4111111111111111",
-        "cc_type"     : "Visa",
-        "cc_exp_month": "12",
-        "cc_exp_year" : "2022",
-        "cc_cid"      : "111"
-
-      },
+      defaultFORMData: require('./data/default.json'),
 
       users : [
         { }
@@ -70,10 +38,11 @@
         } else {
           Object.assign(this.users[0], this.defaultFORMData);
         }
+        localStorage.setItem('users', JSON.stringify(this.users));
       },
 
       clickHandler(tab){
-          if(false) { // For selecting user
+          if(this.users.length > 1) {
               chrome.browserAction.setPopup({
                   tabId: tab.id,
                   popup: 'popup.html'
@@ -86,8 +55,8 @@
       prepareResponse(request, sender, sendResponse) {
           if (sender.id !== this.extensions_id ) { return; }
           if(request.getFormData) {
-            if(request.index){
-              sendResponse(this.users[request.index]);
+            if(request.user !== undefined){
+              sendResponse(this.users[request.user]);
             } else {
               sendResponse(this.users);
             }

@@ -5,8 +5,9 @@ body {
 }
 
 body {
-  font: 10px "Helvetica Neue", "Calibri", "Droid Sans", "Helvetica", "Arial", sans-serif;
-  width: 640px;
+  font: 10px $ff;
+  letter-spacing: .1ex;
+  width: 64em;
   margin: 0 auto;
   text-align: center;
   color: #333;

@@ -1,6 +1,6 @@
 <template>
-    <div v-if="loaded">
-        <user-data v-for="(form, index) in users" :form="form" :index="index" :key="index" @updateUser="updateUser"></user-data>
+    <div>
+        <user-data v-for="(formData, index) in users" :form="formData" :index="index" :key="index" @updateUser="updateUser"></user-data>
     </div>
 </template>
 
@@ -22,18 +22,10 @@
 
   export default {
     data() {
+      let users = JSON.parse(localStorage.getItem('users'));
       return {
-        users: [
-          {}
-        ],
-        loaded: false
+        users
       }
-    },
-    beforeCreate(){
-      getData().then(data => {
-        this.$set(this, 'users', data);
-        this.loaded = true;
-      });
     },
     methods: {
       updateUser(){
