@@ -131,6 +131,9 @@
             </ul>
         </fieldset>
         <div class="form-actions">
+            <transition name="fade">
+                <div v-if="saved" class="alert">Successfully Saved</div>
+            </transition>
             <button @click.prevent="resetForm">Use Default</button>
             <button @click.prevent="saveForm">Submit</button>
         </div>
@@ -139,8 +142,18 @@
 
 <script>
   export default {
+    data() {
+      return {
+        saved: false
+      }
+    },
     props: ['form', 'index'],
     methods: {
+
+      setSaved(){
+        this.saved = true;
+        setTimeout(() => this.saved = false, 5000);
+      },
 
       resetForm(){
         if(!localStorage.users) { return; }
@@ -151,6 +164,7 @@
           localData[this.index] = {};
           localStorage.users = JSON.stringify(localData);
         }
+        this.setSaved();
         this.$emit('updateUser');
       },
 
@@ -159,6 +173,7 @@
         localData[this.index] = localData[this.index] || {};
         Object.assign(localData[this.index], this.form);
         localStorage.setItem('users', JSON.stringify(localData));
+        this.setSaved();
         this.$emit('updateUser');
       }
 

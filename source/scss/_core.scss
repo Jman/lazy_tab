@@ -10,5 +10,6 @@ body {
   width: 64em;
   margin: 0 auto;
   text-align: center;
-  color: #333;
+  color: $c-text;
+  text-shadow: 1px 1px 1px #fff;
 }

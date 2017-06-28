@@ -1,7 +1,7 @@
 fieldset {
   border: none;
   padding: 2em;
-  background: #f0f0f0;
+  background: $c-bg;
   margin: 6em 0;
   border-radius: 10px;
   border-top-left-radius: 0;
@@ -16,8 +16,7 @@ legend {
   border-radius: 10px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  background: #f0f0f0;
-  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.7)
+  background: $c-bg;
 }
 .form-list {
   display: inline-block;
@@ -55,7 +54,6 @@ label {
   width: 11em;
   padding: 0 1em 0 0;
   text-align: right;
-  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.7);
 }
 input, select {
   color: #333;
@@ -79,30 +77,3 @@ input, select {
   }
 }
 select { -webkit-appearance: none; }
-
-
-.form-actions {
-  margin: -1em 0 6em;
-  text-align: right;
-  word-spacing: 1em;
-}
-
-button {
-  border: none;
-  color: rgba(255, 255, 255, 0.9);
-  padding: 0 1em;
-  border-radius: .35em;
-  font: bold 16px/2.5em $ff;
-  background: linear-gradient(to bottom, #000 0%, rgba(#000, .7) 50%, #000 100%);
-  transition: 200ms ease-out;
-  letter-spacing: .1ex;
-  &:focus, &:hover {
-    cursor: pointer;
-    outline: none;
-    color: #fff;
-    box-shadow: 0 0 5px #4e4e4e;
-  }
-  &:active {
-    background: linear-gradient(to bottom, #000 0%, #000 50%, #000 100%);
-  }
-}
