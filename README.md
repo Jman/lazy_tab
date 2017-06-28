@@ -9,6 +9,10 @@ It uses dummy data, but you can customize it at settings page
 
 ## Release History
 
+### 1.0.2
+  * Styling
+  * Add success message on save
+
 ### 1.0.1
   * Reorganize assets
   * Move build tasks to Webpack
