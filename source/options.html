@@ -2,147 +2,15 @@
 <html>
 <head>
     <title>Form Details</title>
-    <link href="logo_16.png" rel="icon" type="image/ico">
-    <link rel="stylesheet" type="text/css" href="main.min.css">
+    <link href="img/logo_16.png" rel="icon" type="image/ico">
+    <link rel="stylesheet" type="text/css" href="scss/main.scss">
 </head>
 <body>
-<form action="/" id="form">
-    <fieldset>
-        <legend>User Info</legend>
-        <ul class="form-list">
-            <li class="field">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email">
-                <input type="hidden" name="username">
-            </li>
-            <li class="field">
-                <label for="password">Password</label>
-                <input type="text" name="password" id="password">
-                <input type="hidden" name="confirm">
-            </li>
-            <li class="field">
-                <label for="firstname">Firstname</label>
-                <input type="text" name="firstname" id="firstname">
-            </li>
-            <li class="field">
-                <label for="lastname">Lastname</label>
-                <input type="text" name="lastname" id="lastname">
-            </li>
-            <li class="field">
-                <label for="telephone">Telephone</label>
-                <input type="text" name="telephone" id="telephone">
-            </li>
-        </ul>
-    </fieldset>
-    <fieldset>
-        <legend>Billing Address</legend>
-        <ul class="form-list">
-            <li class="field">
-                <label for="street">Street</label>
-                <input type="text" name="street" id="street" />
-            </li>
-            <li class="field">
-                <label for="city">City</label>
-                <input type="text" name="city" id="city" />
-            </li>
-            <li class="field">
-                <label for="country_id">Country</label>
-                <input type="text" name="country_id" id="country_id" />
-                <span class="hint">should be shortcode</span>
-            </li>
-            <li class="field">
-                <label for="region_id">State</label>
-                <input type="text" name="region_id" id="region_id" />
-                <span class="hint">can be integer id or string name of state</span>
-            </li>
-            <li class="field">
-                <label for="postcode">Postcode</label>
-                <input type="text" name="postcode" id="postcode" />
-            </li>
-        </ul>
-    </fieldset>
-    <fieldset>
-        <legend>Shipping Address</legend>
-        <ul class="form-list">
-            <li class="field">
-                <label for="shipping_firstname">Firstname</label>
-                <input type="text" name="shipping[firstname]" id="shipping_firstname" />
-            </li>
-            <li class="field">
-                <label for="shipping_lastname">Lastname</label>
-                <input type="text" name="shipping[lastname]" id="shipping_lastname" />
-            </li>
-            <li class="field">
-                <label for="shipping_email">Email</label>
-                <input type="email" name="shipping[email]" id="shipping_email" />
-            </li>
-            <li class="field">
-                <label for="shipping_telephone">Telephone</label>
-                <input type="text" name="shipping[telephone]" id="shipping_telephone" />
-            </li>
-            <li class="field">
-                <label for="shipping_street">Street</label>
-                <input type="text" name="shipping[street][]" id="shipping_street" />
-            </li>
-            <li class="field">
-                <label for="shipping_city">City</label>
-                <input type="text" name="shipping[city]" id="shipping_city" />
-            </li>
-            <li class="field">
-                <label for="shipping_country_id">Country</label>
-                <input type="text" name="shipping[country_id]" id="shipping_country_id" />
-                <span class="hint">should be shortcode</span>
-            </li>
-            <li class="field">
-                <label for="shipping_region_id">State</label>
-                <input type="text" name="shipping[region_id]" id="shipping_region_id" />
-                <span class="hint">can be integer id or string name of state</span>
-            </li>
-            <li class="field">
-                <label for="shipping_postcode">Postcode</label>
-                <input type="text" name="shipping[postcode]" id="shipping_postcode" />
-            </li>
-        </ul>
-    </fieldset>
-    <fieldset>
-        <legend>Payment Info</legend>
-        <ul class="form-list">
-            <li class="field">
-                <label for="cc_owner">Owner Name</label>
-                <input type="text" name="cc_owner" id="cc_owner" />
-            </li>
-            <li class="field">
-                <label for="cc_number">Card Number</label>
-                <input type="text" name="cc_number" id="cc_number" />
-            </li>
-            <li class="field">
-                <label for="cc_type">Card Type</label>
-                <select name="cc_type" id="cc_type">
-                    <option value="Visa">Visa</option>
-                    <option value="Master Card">Master Card</option>
-                </select>
-            </li>
-            <li class="field">
-                <label for="cc_exp_month">Exp. Month</label>
-                <input type="text" name="cc_exp_month" id="cc_exp_month" />
-            </li>
-            <li class="field">
-                <label for="cc_exp_year">Exp. Year</label>
-                <input type="text" name="cc_exp_year" id="cc_exp_year" />
-            </li>
-            <li class="field">
-                <label for="cc_cid">CVV</label>
-                <input type="text" name="cc_cid" id="cc_cid" />
-            </li>
-        </ul>
-    </fieldset>
-    <div class="form-actions">
-        <input id="reset" type="button" value="Use Default" />
-        <input id="submit" type="button" value="Submit" />
-    </div>
-</form>
-<a class="sponsor-label" href="https://eltrino.com">
-    Sponsored by: <img src="logo.svg" alt="Eltrino" />
+<div id="options">
+
+</div>
+<a class="sponsor-label" href="http://bit.ly/2tbJvEL">
+    Sponsored by: <img src="img/eltrino.svg" alt="Eltrino" />
 </a>
 <script type="text/javascript" src="options.js"></script>
 </body>

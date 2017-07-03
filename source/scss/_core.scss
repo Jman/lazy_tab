@@ -1,0 +1,17 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font: 10px $ff;
+  letter-spacing: .1ex;
+  width: 64em;
+  padding: 6em 1em;
+  box-sizing: border-box;
+  margin: 0 auto;
+  text-align: center;
+  color: $c-text;
+  text-shadow: 1px 1px 1px #fff;
+}

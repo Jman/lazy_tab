@@ -4,82 +4,90 @@
 
     var OPCForm = {
 
-        extensions_id : chrome.runtime.id,
+      extensions_id : chrome.runtime.id,
 
-        defaultFORMData: {
+      defaultFORMData: require('./data/default.json'),
 
-            "firstname" : "John",
-            "lastname"  : "Smith",
-            "telephone" : "1-424-280-0000",
-            "email"     : "john.smith@example.com",
-            "username"  : "john.smith@example.com",
-            "street"    : "Coldwater Canyon Dr",
-            "city"      : "Beverly Hills",
-            "country_id": "US",
-            "region_id" : "California",
-            "postcode"  : "90210",
-            "password"  : "password",
-            "confirm"   : "password",
+      users : [
+        { }
+      ],
 
-            "cc_owner"    : "Visa Test",
-            "cc_number"   : "4111111111111111",
-            "cc_type"     : "Visa",
-            "cc_exp_month": "12",
-            "cc_exp_year" : "2022",
-            "cc_cid"      : "111",
 
-            "shipping[firstname]"   : "Jane",
-            "shipping[lastname]"    : "Smith",
-            "shipping[telephone]"   : "1-424-280-0000",
-            "shipping[email]"       : "jane.smith@example.com",
-            "shipping[street][]"    : "Coldwater Canyon Dr",
-            "shipping[city]"        : "Beverly Hills",
-            "shipping[country_id]"  : "US",
-            "shipping[region_id]"   : "California",
-            "shipping[postcode]"    : "90210"
+      // Update Data for new format
+      updateOldData(){
+        if(localStorage.length !== 0 && !localStorage.users) {
+          let localData = {};
 
-        },
+          Object.keys(localStorage).forEach(key => {
+            localData[key] = localStorage[key];
+          } );
 
-        FORMData : {},
-
-        syncFORMData : function() {
-            var names = Object.keys(this.defaultFORMData),
-                i = 0;
-            for( i = names.length ; i-- ; ) {
-                this.FORMData[names[i]] = this.defaultFORMData[names[i]];
-            }
-            if(localStorage.length !== 0){
-                for( i = names.length; i--; ) {
-                    if(localStorage[names[i]] !== undefined){
-                        this.FORMData[names[i]] = localStorage[names[i]];
-                    }
-                }
-            }
-        },
-
-        fillform : function bg_fillform(tab){
-            chrome.tabs.executeScript( tab.id, { file:"fillform.js" });
-        },
-
-        prepareResponse : function bg_prepareResponse(request, sender, sendResponse) {
-            if (sender.id !== this.extensions_id ) { return; }
-            if(request.getFormData) {
-                sendResponse(this.FORMData);
-            }
-            if(request.setFormData) {
-                this.syncFORMData();
-                sendResponse(this.FORMData);
-            }
-        },
-
-        initialize : function bg_atachevents(){
-            this.syncFORMData();
-            chrome.extension.onMessage.addListener( this.prepareResponse.bind(this) );
-            chrome.browserAction.onClicked.addListener( this.fillform.bind(this) );
+          localStorage.clear();
+          localStorage.users = JSON.stringify([localData]);
         }
+      },
+
+      syncFORMData() {
+        if(localStorage.length !== 0 && localStorage.users){
+          this.users = JSON.parse(localStorage.users);
+          this.users.forEach(user => {
+            if(Object.keys(user).length === 0) {
+              Object.assign(user, this.defaultFORMData);
+            }
+          });
+        } else {
+          Object.assign(this.users[0], this.defaultFORMData);
+        }
+        localStorage.setItem('users', JSON.stringify(this.users));
+      },
+
+      clickHandler(tab){
+        if(localStorage.length !== 0 && localStorage.users){
+          this.users = JSON.parse(localStorage.users);
+        }
+        chrome.tabs.executeScript( tab.id, { file:"fillform.js" }, () => {
+          if(this.users.length > 1) {
+            chrome.browserAction.setPopup({
+              tabId: tab.id,
+              popup: require('./popup.html')
+            })
+          } else {
+            chrome.tabs.sendMessage(tab.id, {
+              FORMData: this.users[0]
+            })
+          }
+        });
+      },
+
+      prepareResponse(request, sender, sendResponse) {
+          if (sender.id !== this.extensions_id ) { return; }
+          if(request.getFormData) {
+            if(request.user !== undefined){
+              sendResponse(this.users[request.user]);
+            } else {
+              sendResponse(this.users);
+            }
+          }
+          if(request.setFormData) {
+              this.syncFORMData();
+              sendResponse(this.users);
+          }
+      },
+
+      initialize(){
+        this.syncFORMData();
+        chrome.runtime.onMessage.addListener( this.prepareResponse.bind(this) );
+        chrome.browserAction.onClicked.addListener( this.clickHandler.bind(this) );
+
+        chrome.runtime.onInstalled.addListener(details => {
+          if(details.reason === "update"){
+            this.updateOldData()
+          }
+        });
+      }
     };
 
-    OPCForm.initialize();
+  OPCForm.initialize();
 
 })();
 

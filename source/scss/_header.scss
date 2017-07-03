@@ -1,0 +1,19 @@
+header {
+  position: fixed;
+  padding: 1em;
+  top:0;
+  left:0;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: right;
+  z-index:1;
+  background: #fff;
+  box-shadow: 0 1px 1px rgba(#4e4e4e, .5);
+}
+
+h1 {
+  margin: 0;
+  float: left;
+  text-align: left;
+  font: 500 2em/#{em(40,20)} $ff;
+}

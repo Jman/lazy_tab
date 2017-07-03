@@ -1,0 +1,37 @@
+.form-actions {
+  margin: -1em 0 6em;
+  text-align: right;
+  word-spacing: 1em;
+}
+
+.alert {
+  word-spacing: normal;
+  float: left;
+  font: 1.2em/#{em(40,12)} $ff;
+  padding: 0 2em;
+  border: 1px rgba($c-green, .5) solid;
+  border-radius: .5em;
+  background: rgba($c-green, .1);
+  color: $c-green;
+}
+
+
+button {
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 0 1em;
+  border-radius: .35em;
+  font: 500 1.6em/#{em(40,16)} $ff;
+  background: linear-gradient(to bottom, #000 0%, rgba(#000, .7) 50%, #000 100%);
+  transition: 200ms ease-out;
+  letter-spacing: .1ex;
+  &:focus, &:hover {
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    box-shadow: 0 0 5px #4e4e4e;
+  }
+  &:active {
+    background: linear-gradient(to bottom, #000 0%, #000 50%, #000 100%);
+  }
+}

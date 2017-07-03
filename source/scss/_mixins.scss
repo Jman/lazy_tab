@@ -1,0 +1,12 @@
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+
+
+$browser-context: 10;
+@function em($pixels, $context: $browser-context) {
+  @return #{strip-unit($pixels)/$context}em;
+}
