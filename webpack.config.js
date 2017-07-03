@@ -120,8 +120,7 @@ if (isProd) {
     }),
     new ZipPlugin({
       path: './../',
-      filename: require("./package.json").version + '.zip',
-      exclude: ['manifest.js']
+      filename: require("./package.json").version + '.zip'
     })
   ]
 }
