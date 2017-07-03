@@ -47,6 +47,11 @@
     keyboardEvent.initEvent('keyup', true, true);
     selectEvent.initEvent('change', true, true);
 
-    chrome.extension.sendMessage({ getFormData: true, user: 0 }, fillForm);
+    chrome.runtime.onMessage.addListener(function(request){
+      console.log(request)
+      fillForm(request.FORMData);
+    })
+
+    //chrome.runtime.sendMessage({ getFormData: true, user: 0 }, fillForm);
 
 })(document);

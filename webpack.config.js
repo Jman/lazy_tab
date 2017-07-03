@@ -8,6 +8,7 @@ module.exports = {
   entry: {
     manifest : './source/manifest.json',
     options: './source/options.js',
+    popup: './source/popup.js',
     fillform: './source/fillform.js',
     background: './source/background.js'
   },
@@ -111,6 +112,12 @@ module.exports = {
 if (isProd) {
   module.exports.output.path = path.resolve(__dirname, './dist');
   module.exports.plugins = [
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
+      compress: {
+        warnings: false
+      }
+    }),
     new ZipPlugin({
       path: './../',
       filename: require("./package.json").version + '.zip',

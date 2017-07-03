@@ -29,12 +29,12 @@
 
       syncFORMData() {
         if(localStorage.length !== 0 && localStorage.users){
-          Object.assign(this.users, JSON.parse(localStorage.users));
+          this.users = JSON.parse(localStorage.users);
           this.users.forEach(user => {
             if(Object.keys(user).length === 0) {
               Object.assign(user, this.defaultFORMData);
             }
-          })
+          });
         } else {
           Object.assign(this.users[0], this.defaultFORMData);
         }
@@ -42,14 +42,21 @@
       },
 
       clickHandler(tab){
+        if(localStorage.length !== 0 && localStorage.users){
+          this.users = JSON.parse(localStorage.users);
+        }
+        chrome.tabs.executeScript( tab.id, { file:"fillform.js" }, () => {
           if(this.users.length > 1) {
-              chrome.browserAction.setPopup({
-                  tabId: tab.id,
-                  popup: 'popup.html'
-              })
+            chrome.browserAction.setPopup({
+              tabId: tab.id,
+              popup: require('./popup.html')
+            })
           } else {
-              chrome.tabs.executeScript( tab.id, { file:"fillform.js" });
+            chrome.tabs.sendMessage(tab.id, {
+              FORMData: this.users[0]
+            })
           }
+        });
       },
 
       prepareResponse(request, sender, sendResponse) {
@@ -69,7 +76,7 @@
 
       initialize(){
         this.syncFORMData();
-        chrome.extension.onMessage.addListener( this.prepareResponse.bind(this) );
+        chrome.runtime.onMessage.addListener( this.prepareResponse.bind(this) );
         chrome.browserAction.onClicked.addListener( this.clickHandler.bind(this) );
 
         chrome.runtime.onInstalled.addListener(details => {

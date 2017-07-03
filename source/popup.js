@@ -1,7 +1,7 @@
 import Vue from 'vue';
-import Options from './components/Options.vue';
+import Options from './components/Popup.vue';
 
 new Vue({
-  el: '#options',
+  el: '#popup',
   render: render => render(Options)
 });

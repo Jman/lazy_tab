@@ -21,7 +21,7 @@ button {
   color: rgba(255, 255, 255, 0.9);
   padding: 0 1em;
   border-radius: .35em;
-  font: bold 1.6em/#{em(40,16)} $ff;
+  font: 500 1.6em/#{em(40,16)} $ff;
   background: linear-gradient(to bottom, #000 0%, rgba(#000, .7) 50%, #000 100%);
   transition: 200ms ease-out;
   letter-spacing: .1ex;

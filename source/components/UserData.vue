@@ -6,12 +6,10 @@
                 <li class="field">
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" v-model="form.email">
-                    <input type="hidden" name="username" v-model="form.email">
                 </li>
                 <li class="field">
                     <label for="password">Password</label>
                     <input name="password" id="password" v-model="form.password">
-                    <input type="hidden" name="confirm" v-model="form.password">
                 </li>
                 <li class="field">
                     <label for="firstname">Firstname</label>
@@ -148,24 +146,30 @@
       }
     },
     props: ['form', 'index'],
+    watch: {
+      'form.email'(val){
+        this.form.username = val
+      },
+      'form.password'(val){
+        this.form.confirm = val
+      }
+    },
     methods: {
 
       setSaved(){
         this.saved = true;
-        setTimeout(() => this.saved = false, 5000);
+        setTimeout(() => {
+          this.saved = false;
+          }, 5000
+        );
       },
 
       resetForm(){
         if(!localStorage.users) { return; }
         let localData = JSON.parse(localStorage.users);
-        if(localData.length === 1){
-          localStorage.removeItem('users');
-        } else {
-          localData[this.index] = {};
-          localStorage.users = JSON.stringify(localData);
-        }
+        localData[this.index] = {};
+        localStorage.setItem('users', JSON.stringify(localData));
         this.setSaved();
-        this.$emit('updateUser');
       },
 
       saveForm(){
@@ -174,7 +178,6 @@
         Object.assign(localData[this.index], this.form);
         localStorage.setItem('users', JSON.stringify(localData));
         this.setSaved();
-        this.$emit('updateUser');
       }
 
     }

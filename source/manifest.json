@@ -1,6 +1,6 @@
 {
   "name"              : "Magento Form Filler",
-  "description"       : "Fill out checkout and registration forms at Magento store. It uses dummy data, but you can customize it at settings page",
+  "description"       : "Fill out checkout and registration forms at Magento store. Plugin uses dummy data for one user, but you can add more users and customize their data on settings page.",
   "version"           : "0.0.0.0",
   "manifest_version"  : 2,
   "browser_action"    : {

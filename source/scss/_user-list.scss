@@ -1,0 +1,36 @@
+.user-list {
+  margin: 2em 0;
+  width: 100%;
+  border-radius: .5em;
+  box-sizing: border-box;
+  border-collapse: collapse;
+  overflow: hidden;
+  tr{
+    cursor: pointer;
+    transition: .3s ease-out;
+    &:nth-child(odd) {
+      background: rgba($c-border, .05);
+    }
+    &:hover {
+      background: rgba($c-border, .1);
+    }
+  }
+  td, th {
+    padding: 1em;
+    font-size: 1.4em;
+  }
+
+  .index {
+    width:1px;
+    padding-right: 0;
+  }
+
+  .name {
+    text-align: left;
+  }
+
+  .actions {
+    text-align: right;
+  }
+
+}
