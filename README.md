@@ -9,6 +9,9 @@ Plugin uses dummy data for one user, but you can add more users and customize th
 
 ## Release History
 
+### 1.1.1
+  * Small fixes
+
 ### 1.1.0
   * Add support for multiple users settings
 

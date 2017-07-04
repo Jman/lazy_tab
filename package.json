@@ -2,7 +2,7 @@
   "name": "opc_form",
   "title": "Magento Form Filler",
   "description": "Fill out checkout and registration forms at Magento store. Plugin uses dummy data for one user, but you can add more users and customize their data on settings page.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "homepage": "https://github.com/jman/opc_form",
   "author": {
     "name": "Eugen Tereschenko",
