@@ -1,11 +1,10 @@
 # Magento Form Filler
 
 Extension for Google Chrome that helps to fill out checkout and registration forms at Magento store.
-Plugin uses dummy data for one user, but you can add more users and customize their data on settings page.
+Plugin uses dummy data for one user, but you can add more users and customize their data on option page.
 
 
 [Url to install](https://chrome.google.com/webstore/detail/magento-form-filler/kgjadikbkhkijmjickblphfgjgjagged "Magento Form Filler")
-
 
 ## Release History
 

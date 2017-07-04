@@ -18,7 +18,7 @@ module.exports = {
     filename: '[name].js'
   },
 
-  watch: true,
+  watch: !isProd,
 
   module: {
     rules: [
