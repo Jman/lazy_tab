@@ -1,11 +1,11 @@
 {
     "name": "lazy_tabs",
-    "title" : "Lazy Tabs",
+    "title": "Lazy Tabs",
     "description": "Faster start for Google Chrome \nBlocks all requests in inactive tabs (except main document and favicon) at Google Chrome startup, main document stops while loading to get title and favicon, \nContent is reloaded when tab is focused ",
-    "version": "0.2.1",
+    "version": "0.3.0",
     "homepage": "https://github.com/jman/lazy_tabs",
     "author": {
-        "name": "Eugen Tereschenko",
+        "name": "Eugene Tereshchenko",
         "email": "i@jman.info"
     },
     "repository": {
@@ -22,10 +22,27 @@
         }
     ],
     "devDependencies": {
-        "grunt": "~0.3.16",
-        "grunt-contrib-clean": "~0.3.0",
-        "grunt-contrib-compress": "~0.3.0",
-        "grunt-contrib-copy": "~0.3.0"
+        "babel-core": "^6.25.0",
+        "babel-loader": "^7.1.1",
+        "babel-preset-env": "^1.6.0",
+        "chrome-manifest-loader": "^0.1.1",
+        "cross-env": "^5.0.3",
+        "css-loader": "^0.28.4",
+        "extract-loader": "^1.0.0",
+        "file-loader": "^0.11.2",
+        "html-loader": "^0.5.0",
+        "webpack": "^3.4.1",
+        "zip-webpack-plugin": "^2.0.0"
     },
-    "keywords": ["chrome", "tabs"]
+    "browserslist": [
+        "chrome > 50"
+    ],
+    "keywords": [
+        "chrome",
+        "tabs"
+    ],
+    "scripts": {
+        "dev": "cross-env NODE_ENV=development webpack",
+        "build": "cross-env NODE_ENV=production webpack"
+    }
 }

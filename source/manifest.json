@@ -1,8 +1,8 @@
 {
-    "name"             : "Lazy Tabs Local",
-    "version"          : "0.2.1",
+    "name"             : "Lazy Tabs",
+    "version"          : "0.0.0.0",
     "manifest_version" : 2,
-    "description"      : "Blocks all requests in inactive tabs (except main document and favicon) at Google Chrome startup",
+    "description"      : "Blocks all requests in inactive tabs (except pinned tabs, main document and favicon) at Google Chrome startup",
     "permissions"      : [
         "tabs",
         "webRequest",
@@ -14,7 +14,7 @@
         "scripts" : ["background.js"]
     },
     "icons"            : {
-        "128" : "ico_128.png",
-        "48"  : "ico_48.png"
+        "128" : "require(./ico_128.png)",
+        "48"  : "require(./ico_48.png)"
     }
 }
