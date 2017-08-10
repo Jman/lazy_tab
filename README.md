@@ -1,11 +1,10 @@
 # Lazy Tabs
-
+  
 Faster start for Google Chrome  
-Blocks all requests in inactive tabs (except pined tabs, main html documents and favicons) at Google Chrome startup,  
-main document stops while loading to get title and favicon.  
-Content is reloaded when tab is focused.
+Discard all inactive tabs (except pinned tabs) at Google Chrome startup.  
+Tab is reloading on focus 
 
-[Url to install] (https://chrome.google.com/webstore/detail/lazy-tabs/aabgbgciohhaogajcnacpgilhmacdahc "lazy-tabs")
+[Url to install](https://chrome.google.com/webstore/detail/lazy-tabs/aabgbgciohhaogajcnacpgilhmacdahc "lazy-tabs")
 
 ## Donate
 
@@ -16,6 +15,9 @@ You can buy me a beer by donating:
   * DSH: Xh3tBUyRkdghcbRypTuraUHS566DxVBF5i
 
 ## Release History
+
+### 0.4.0
+  * Remove all code, switch to discard algorithm
 
 ### 0.3.0
   * Move from Grunt to Webpack

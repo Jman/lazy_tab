@@ -1,8 +1,8 @@
 {
     "name": "lazy_tabs",
     "title": "Lazy Tabs",
-    "description": "Faster start for Google Chrome \nBlocks all requests in inactive tabs (except main document and favicon) at Google Chrome startup, main document stops while loading to get title and favicon, \nContent is reloaded when tab is focused ",
-    "version": "0.3.0",
+    "description": "Faster start for Google Chrome \nDiscard all inactive tabs (except pinned tabs) at Google Chrome startup.\nTab is reloading on focus",
+    "version": "0.4.0",
     "homepage": "https://github.com/jman/lazy_tabs",
     "author": {
         "name": "Eugene Tereshchenko",

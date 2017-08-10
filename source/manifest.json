@@ -1,20 +1,16 @@
 {
-    "name"             : "Lazy Tabs",
-    "version"          : "0.0.0.0",
-    "manifest_version" : 2,
-    "description"      : "Blocks all requests in inactive tabs (except pinned tabs, main document and favicon) at Google Chrome startup",
-    "permissions"      : [
-        "tabs",
-        "webRequest",
-        "webRequestBlocking",
-        "http://*/*",
-        "https://*/*"
-    ],
-    "background"       : {
-        "scripts" : ["background.js"]
-    },
-    "icons"            : {
-        "128" : "require(./ico_128.png)",
-        "48"  : "require(./ico_48.png)"
-    }
+  "name": "Lazy Tabs",
+  "version": "0.0.0.0",
+  "manifest_version": 2,
+  "description": "Discard all inactive tabs (except pinned tabs) at Google Chrome startup",
+  "permissions": [
+    "tabs"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "icons": {
+    "128": "require(./ico_128.png)",
+    "48": "require(./ico_48.png)"
+  }
 }
