@@ -2,10 +2,16 @@
   "name": "Lazy Tabs",
   "version": "0.0.0.0",
   "manifest_version": 2,
-  "description": "Discard all inactive tabs (except pinned tabs) at Google Chrome startup",
+  "description": "Unload all inactive tabs (except pinned) at startup or by clicking an icon",
+  "incognito": "not_allowed",
+  "minimum_chrome_version": "54",
   "permissions": [
     "tabs"
   ],
+  "browser_action"    : {
+    "default_title"   : "Unload other tabs",
+    "default_icon"    : "require(./ico_48.png)"
+  },
   "background": {
     "scripts": ["background.js"]
   },

@@ -1,8 +1,7 @@
 # Lazy Tabs
   
 Faster start for Google Chrome  
-Discard all inactive tabs (except pinned tabs) at Google Chrome startup.  
-Tab is reloading on focus 
+Discard all inactive tabs (except pinned) at Google Chrome startup or by clicking an icon.  
 
 [Url to install](https://chrome.google.com/webstore/detail/lazy-tabs/aabgbgciohhaogajcnacpgilhmacdahc "lazy-tabs")
 
@@ -15,6 +14,9 @@ You can buy me a beer by donating:
   * DSH: Xh3tBUyRkdghcbRypTuraUHS566DxVBF5i
 
 ## Release History
+
+### 0.5.0
+  * Add click event for discarding tabs
 
 ### 0.4.0
   * Remove all code, switch to discard algorithm

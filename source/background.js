@@ -2,15 +2,19 @@
 
     "use strict";
 
-    tabs.query({}, tabsList => {
-        tabsList.forEach( tab => {
-            if(tab.pinned || tab.active || tab.discarded) {
-                return;
-            }
-            tabs.discard(tab.id);
-        } )
-    });
+    const specialUrls =/chrome-extension:|chrome:|chrome-devtools:|file:|chrome.google.com\/webstore/;
 
-    chrome.browserAction.onClicked.addListener( tab => tabs.discard(tab.id) );
+    let discardAllTabs = () => {
+        tabs.query({}, tabsList => {
+            tabsList.forEach( tab => {
+                if(tab.pinned || tab.active || tab.discarded) { return; }
+                if(tab.url && specialUrls.test(tab.url)){ return; }
+                tabs.discard(tab.id);
+            } )
+        });
+    };
+
+    chrome.browserAction.onClicked.addListener( discardAllTabs );
+    chrome.runtime.onStartup.addListener( discardAllTabs );
 
 })(chrome.tabs);
