@@ -15,6 +15,9 @@ You can buy me a beer by donating:
 
 ## Release History
 
+### 0.5.1
+  * Update icon
+
 ### 0.5.0
   * Add click event for discarding tabs
 
