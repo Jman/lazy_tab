@@ -8,10 +8,10 @@ Discard all inactive tabs (except pinned) at Google Chrome startup or by clickin
 ## Donate
 
 You can buy me a beer by donating:
-  * BTC: 14hYc4kWUeN1xwo3BUdixkZTHuV5cNvCMF
-  * LTC: LTPNAcQuFYUNeqgu6FyRV7CR71gs5wR79z
+  * BTC: 19V71tBmDPe1CdM3JXvLkDG3wmcCmVxHq7
+  * LTC: LYs4sw8bpYoyKSBdvBxpi4pzprUfgTMEiZ
   * ETH: 0x0c102c2ae13a58d8ea6524f1129af24dc738749c
-  * DASH: Xh3tBUyRkdghcbRypTuraUHS566DxVBF5i
+  * DASH: XiYZjcgCdKB6G5syHxm2gLQt9Epqb5qUAU
   
 Or just [click the url](https://cnhv.co/87z) and donate a little bit of your CPU (one-time donation, takes around 1 minute)
 
