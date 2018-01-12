@@ -74,7 +74,7 @@ module.exports = {
         ]
       },
       {
-        test: /\/manifest\.json$/,
+        test: /[/\\]manifest\.json$/,
         use: [
           {
             loader: 'file-loader',
