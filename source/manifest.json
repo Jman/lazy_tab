@@ -13,7 +13,8 @@
     "default_icon"    : "require(./ico_48.png)"
   },
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["background.js"],
+    "persistent": false
   },
   "icons": {
     "128": "require(./ico_128.png)",
