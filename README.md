@@ -17,6 +17,10 @@ Or just [click the url](https://cnhv.co/87z) and donate a little bit of your CPU
 
 ## Release History
 
+### 0.5.2 ( thanks to [Mathieu Hofman](https://github.com/mhofman) )
+  * Discard active tabs if their window is minimized
+  * Transform the background page into an event page
+
 ### 0.5.1
   * Update icon
 
