@@ -12,8 +12,6 @@ You can buy me a beer by donating:
   * LTC: LYs4sw8bpYoyKSBdvBxpi4pzprUfgTMEiZ
   * ETH: 0x0c102c2ae13a58d8ea6524f1129af24dc738749c
   * DASH: XiYZjcgCdKB6G5syHxm2gLQt9Epqb5qUAU
-  
-Or just [click the url](https://cnhv.co/87z) and donate a little bit of your CPU (one-time donation, takes around 1 minute)
 
 ## Release History
 
