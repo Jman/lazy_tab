@@ -1,7 +1,7 @@
 # Lazy Tabs
-  
-Faster start for Google Chrome  
-Discard all inactive tabs (except pinned) at Google Chrome startup or by clicking an icon.  
+
+Faster start for Google Chrome
+Discard all inactive tabs (except pinned) at Google Chrome startup or by clicking an icon.
 
 [Url to install](https://chrome.google.com/webstore/detail/lazy-tabs/aabgbgciohhaogajcnacpgilhmacdahc "lazy-tabs")
 
@@ -12,10 +12,13 @@ You can buy me a beer by donating:
   * LTC: LYs4sw8bpYoyKSBdvBxpi4pzprUfgTMEiZ
   * ETH: 0x0c102c2ae13a58d8ea6524f1129af24dc738749c
   * DASH: XiYZjcgCdKB6G5syHxm2gLQt9Epqb5qUAU
-  
+
 Or just [click the url](https://cnhv.co/87z) and donate a little bit of your CPU (one-time donation, takes around 1 minute)
 
 ## Release History
+
+### 0.5.3
+  * Remove `tabs` permission request
 
 ### 0.5.2 ( thanks to [Mathieu Hofman](https://github.com/mhofman) )
   * Discard active tabs if their window is minimized
