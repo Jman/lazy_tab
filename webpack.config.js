@@ -1,7 +1,8 @@
 const webpack = require('webpack');
 const path = require('path');
+const ZipPlugin = require('zip-webpack-plugin');
+
 const isProd = process.env.NODE_ENV === 'production';
-let ZipPlugin = require('zip-webpack-plugin');
 
 module.exports = {
 
@@ -16,32 +17,17 @@ module.exports = {
   },
 
   watch: !isProd,
+  devtool: isProd ? false : "source-map",
 
   module: {
     rules: [
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        loader: 'esbuild-loader',
+        options: {
+          target: 'chrome88',
+        },
         exclude: /node_modules/
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].css'
-            }
-          },
-          'extract-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              minimize: isProd
-            }
-          },
-          'sass-loader'
-        ]
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
@@ -55,25 +41,6 @@ module.exports = {
         ]
       },
       {
-        test: /\.html$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]'
-            }
-          },
-          'extract-loader',
-          {
-            loader: 'html-loader',
-            options: {
-              attrs: ['img:src', 'link:href'],
-              minimize: isProd
-            }
-          }
-        ]
-      },
-      {
         test: /[/\\]manifest\.json$/,
         use: [
           {
@@ -82,14 +49,21 @@ module.exports = {
               name: '[name].[ext]'
             }
           },
-          'extract-loader',
+          {
+            loader: "extract-loader",
+            options: {
+              publicPath: "",
+            }
+          },
           {
             loader: 'chrome-manifest-loader',
             options: {
-              mapVersion: isProd
+              mapVersion: isProd,
+              mapMinimumChromeVersion: true
             }
           }
-        ]
+        ],
+        type: 'javascript/auto'
       }
     ]
   }
@@ -99,12 +73,6 @@ module.exports = {
 if (isProd) {
   module.exports.output.path = path.resolve(__dirname, './dist');
   module.exports.plugins = [
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false
-      }
-    }),
     new ZipPlugin({
       path: './../',
       filename: require("./package.json").version + '.zip'

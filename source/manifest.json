@@ -1,20 +1,18 @@
 {
   "name": "Lazy Tabs",
   "version": "0.0.0.0",
-  "manifest_version": 2,
+  "manifest_version": 3,
   "description": "Discard all inactive tabs (except pinned) at startup or by clicking an icon",
   "incognito": "not_allowed",
   "minimum_chrome_version": "54",
-  "browser_action"    : {
-    "default_title"   : "Discard other tabs",
-    "default_icon"    : "require(./ico_48.png)"
+  "action": {
+    "default_title": "Discard other tabs",
+    "default_icon": "require(./ico_128.png)"
   },
   "background": {
-    "scripts": ["background.js"],
-    "persistent": false
+    "service_worker": "background.js"
   },
   "icons": {
-    "128": "require(./ico_128.png)",
-    "48": "require(./ico_48.png)"
+    "128": "require(./ico_128.png)"
   }
 }
