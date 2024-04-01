@@ -7,6 +7,10 @@ Discard all inactive tabs (except pinned) at Google Chrome startup or by clickin
 
 ## Release History
 
+### 1.0.1
+
+* Add types
+
 ### 1.0.0
 
 * Update manifest to v3

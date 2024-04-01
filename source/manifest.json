@@ -4,7 +4,7 @@
   "manifest_version": 3,
   "description": "Discard all inactive tabs (except pinned) at startup or by clicking an icon",
   "incognito": "not_allowed",
-  "minimum_chrome_version": "54",
+  "minimum_chrome_version": "88",
   "action": {
     "default_title": "Discard other tabs",
     "default_icon": "require(./ico_128.png)"
