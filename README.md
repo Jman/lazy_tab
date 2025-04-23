@@ -7,6 +7,10 @@ Discard all inactive tabs (except pinned) at Google Chrome startup or by clickin
 
 ## Release History
 
+### 1.1.0
+
+* Suspend tabs during window restoration. Fix #19
+
 ### 1.0.1
 
 * Add types
