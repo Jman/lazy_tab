@@ -24,8 +24,16 @@
     });
   };
 
+  function handleEventDelayed() {
+    setTimeout(handleEvent, 7000);
+  };
+
   chrome.action.onClicked.addListener(handleEvent);
-  chrome.runtime.onStartup.addListener(handleEvent);
-  windows.onCreated.addListener(handleEvent)
+  chrome.runtime.onStartup.addListener(handleEventDelayed);
+  windows.onCreated.addListener((win) => {
+    windows.get(win.id, { populate: true }).then((populatedWin) => {
+      discardWindowTabs(populatedWin);
+    });
+  });
 
 })(chrome.tabs, chrome.windows);
