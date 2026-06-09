@@ -7,12 +7,12 @@
   "minimum_chrome_version": "88",
   "action": {
     "default_title": "Discard other tabs",
-    "default_icon": "require(./ico_128.png)"
+    "default_icon": "ico_128.png"
   },
   "background": {
     "service_worker": "background.js"
   },
   "icons": {
-    "128": "require(./ico_128.png)"
+    "128": "ico_128.png"
   }
 }
