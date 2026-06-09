@@ -1,7 +1,4 @@
 (function (tabs, windows) {
-
-  "use strict";
-
   /**
    * @param {chrome.windows.Window} win
    */
@@ -24,8 +21,27 @@
     });
   };
 
+  function burstDectecor({ limit, timeout, handler }) {
+    let timer = null;
+    let eventCount = 0;
+
+    return function detect() {
+      eventCount++;
+      if (timer) return;
+
+      timer = setTimeout(() => {
+        if (eventCount >= limit) handler();
+        eventCount = 0;
+        timer = null;
+      }, timeout);
+    };
+  }
+
   chrome.action.onClicked.addListener(handleEvent);
   chrome.runtime.onStartup.addListener(handleEvent);
-  windows.onCreated.addListener(handleEvent)
+
+  tabs.onCreated.addListener(
+    burstDectecor({ limit: 5, timeout: 60, handler: handleEvent })
+  );
 
 })(chrome.tabs, chrome.windows);
