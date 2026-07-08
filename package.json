@@ -3,22 +3,22 @@
   "title": "Lazy Tabs",
   "description": "Faster start for Google Chrome \nUnload all inactive tabs (except pinned) at Google Chrome startup or by clicking an icon.",
   "version": "1.2.0",
-  "homepage": "https://github.com/jman/lazy_tabs",
+  "homepage": "https://github.com/jman/lazy_tab",
   "author": {
     "name": "Eugene Tereshchenko",
     "email": "i@jman.info"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/jman/lazy_tabs.git"
+    "url": "git://github.com/jman/lazy_tab.git"
   },
   "bugs": {
-    "url": "https://github.com/jman/lazy_tabs/issues"
+    "url": "https://github.com/jman/lazy_tab/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/jman/lazy_tabs/blob/master/LICENSE-MIT"
+      "url": "https://github.com/jman/lazy_tab/blob/master/LICENSE-MIT"
     }
   ],
   "type": "module",
